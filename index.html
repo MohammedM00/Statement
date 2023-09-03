@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Calculator</title>
+</head>
+<body>
+    <script>
+        // Prompt the user to enter the first number
+        const firstNumberInput = prompt("Enter the first number:");
+
+        // Check if the input is a valid number
+        if (isNaN(firstNumberInput)) {
+            alert("Invalid input. Please enter a valid number.");
+        } else {
+            // Prompt the user to enter an operator
+            const operator = prompt("Enter an operator (+, -, *, /):");
+
+            // Check if the input is a valid operator
+            if (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') {
+                alert("Invalid operator. Please enter a valid operator.");
+            } else {
+                // Prompt the user to enter the second number
+                const secondNumberInput = prompt("Enter the second number:");
+
+                // Check if the input is a valid number
+                if (isNaN(secondNumberInput)) {
+                    alert("Invalid input. Please enter a valid number.");
+                } else {
+                    // Convert input strings to numbers
+                    const firstNumber = parseFloat(firstNumberInput);
+                    const secondNumber = parseFloat(secondNumberInput);
+
+                    let result;
+
+                    // Perform the math operation based on the operator
+                    switch (operator) {
+                        case '+':
+                            result = firstNumber + secondNumber;
+                            break;
+                        case '-':
+                            result = firstNumber - secondNumber;
+                            break;
+                        case '*':
+                            result = firstNumber * secondNumber;
+                            break;
+                        case '/':
+                            // Check for division by zero
+                            if (secondNumber === 0) {
+                                alert("Division by zero is not allowed.");
+                            } else {
+                                result = firstNumber / secondNumber;
+                            }
+                            break;
+                        default:
+                            // This should not be reached if the operator check is correct
+                            alert("Invalid operator. Please enter a valid operator.");
+                            break;
+                    }
+
+                    // Display the result
+                    alert(`Result: ${result}`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
